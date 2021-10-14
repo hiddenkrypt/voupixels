@@ -4,7 +4,6 @@ function Loader(ctx) {
 
     var items = [];
     var started = false;
-    var finishedCallback = null;
     var timer = 0;
     var percentage = 0;
     var dots = "";
@@ -20,8 +19,8 @@ function Loader(ctx) {
         if (started) {
             let completeItems = items.filter(e => !e.loaded);
             if (completeItems.length = items.length) {
-                finishedCallback();
-             //   return;
+                runCompleteCallback();
+				return;
             }
         }
         load.draw(ctx);
@@ -63,9 +62,14 @@ function Loader(ctx) {
         },
         begin: function loaderBegin(callback) {
             started = true;
-            finishedCallback = callback;
             runLoop();
-        }
+        },
+		onComplete: function loaderDefaultComplete(){
+			console.log("warning, no loader callback registered!");
+		}
     };
+	function runCompleteCallback(){
+		load.onComplete();
+	}
     return load;
 }
