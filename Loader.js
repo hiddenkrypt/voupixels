@@ -30,7 +30,7 @@ function Loader(ctx) {
     var load = {
         finished: false,
         draw: function loaderDraw(ctx) {
-
+			ctx.fillStyle = "#d0c0b0";
             ctx.font = "bold 24px Courier-new monospace";
             var offset = ctx.measureText(`${percentage}`).width / 2;
             ctx.fillText(`Loading${dots}`, 470, 250);
