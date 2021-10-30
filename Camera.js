@@ -2,7 +2,24 @@
 
 var Camera = function Camera(){
 	let position = { x:0, y:0 };
-
+	var dy = .3;
+	function update(){
+		position.x += .4;
+		position.y += dy;
+		if(position.y >= 793-600){
+			dy = 0;
+		}
+	}
+	function render( ctx ){
+		ctx.resetTransform();
+		ctx.translate(-position.x, -position.y);
+	}
+	return {
+		x: position.x,
+		y: position.y,
+		update:update,
+		render:render
+	}
 };
 
 /*

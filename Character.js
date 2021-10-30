@@ -14,11 +14,11 @@ Sprite guide:
 Statemachine:
 */
 function Character( sprites ){
-	let position = { x: 0, y: 0 };
+	let position = { x: 700, y: 625 };
 	let direction = { dy: 0, dy: 0 };
 	let standing = {
-		x: 3,
-		y: 2
+		y: 3,
+		x: 2
 	}
 	let state = standing;
 	

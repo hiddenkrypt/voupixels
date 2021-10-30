@@ -39,6 +39,10 @@ function Loader(ctx) {
         },
         loadImage: function loaderLoadImage(src) {
             var img = new Image();
+			img.onerror = function(err){ 
+				console.log( "oh god what:" + err);
+				console.log( err);
+			};
             img.addEventListener('load', function () {
                 console.log("loaded: " + src);
                 items.find(e => e.name == src).loaded = true;
